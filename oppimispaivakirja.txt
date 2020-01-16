@@ -1,1 +1,1 @@
-Topic 0 {title='Mooc', description='perusteet', additionalSource='web', complete=false, creationDate=2020-01-16, completionDate=null}
+Topic 0 {title='Mooc', description='perusteet', additionalSource='web', complete=false, creationDate=2020-01-16, completionDate=null}Topic 0 {title='Mooc', description='perusteet', additionalSource='web', complete=false, creationDate=2020-01-16, completionDate=null}Topic 1 {title='Java for dummies', description='perusteet', additionalSource='kirja', complete=false, creationDate=2020-01-16, completionDate=null}
