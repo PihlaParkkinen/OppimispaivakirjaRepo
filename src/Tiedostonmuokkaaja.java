@@ -20,7 +20,7 @@ public class Tiedostonmuokkaaja {
         try {
             bkirjoittaja.write(topic.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("IO virhe");
         }
         try {
             bkirjoittaja.close();

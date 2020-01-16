@@ -32,8 +32,13 @@ public class Kayttoliittyma {
 
     public Topic luoTopic(String o, String k, String l) {
         Topic topic = new Topic(o, k, l);
+
         return topic;
     }
+
+
+
+
 
 
 
