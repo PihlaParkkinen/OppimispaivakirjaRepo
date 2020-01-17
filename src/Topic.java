@@ -28,14 +28,11 @@ public class Topic {
 
     @Override
     public String toString() {
-        return "Topic " + this.idcount + " {" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", additionalSource='" + additionalSource + '\'' +
-                ", complete=" + complete +
-                ", creationDate=" + creationDate +
-                ", completionDate=" + completionDate +
-                '}';
+        return "Topic " + this.idcount + "\n" +
+                this.title + " , " + this.description + " , " + this.additionalSource + "\n"
+                + " Created on: " + this.creationDate + "\n" +
+                " Complete? " + this.complete + " , " + "completion date: " + this.completionDate + "\n";
+
     }
 
 
