@@ -5,15 +5,20 @@ public class Filemodifier {
     public FileWriter fwriter;
     public PrintWriter pwriter;
     public  BufferedWriter bwriter;
+    public FileReader freader;
+    public BufferedReader breader;
 
     public Filemodifier(File filename){
         try {
             this.fwriter = new FileWriter(filename, true);
+            this.pwriter = new PrintWriter(fwriter);
+            this.bwriter = new BufferedWriter(pwriter);
+            this.freader = new FileReader(filename);
+            this.breader = new BufferedReader(freader);
         } catch (IOException e) {
             System.out.println("IO error occurred");
         }
-        this.pwriter = new PrintWriter(fwriter);
-        this.bwriter = new BufferedWriter(pwriter);
+
     }
 
     public void writetoFile(Topic topic){
@@ -23,8 +28,18 @@ public class Filemodifier {
         } catch (IOException e) {
             System.out.println("IO error occurred");
         }
+    }
 
+    public void readFile() {
+      try {
+          String line = " ";
 
+          while ((line = breader.readLine()) != null) {
+              System.out.println(line);
+          }
+      } catch (IOException e) {
+          System.out.println("IO error occurred");
+      }
     }
 
 
