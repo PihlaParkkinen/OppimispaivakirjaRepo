@@ -37,6 +37,7 @@ public class ui {
                 System.out.print("Topic to complete: ");
                 String topicName = inputReader.nextLine();
                 // Jatka tähän: miten haetaan aihe ja tehdään complete() metodi sille.
+                
             }
 
             if (input.equals("3")) {
