@@ -21,12 +21,13 @@ public class Filemodifier {
 
     }
 
-    public void writetoFile(Topic topic){
+    public void writetoFile(Topic topic){ //TÄÄLLÄ VIRHE!!! Ei pysty kirjoittamaan tiedostoon. MIKSI?
+        String topicAsString = topic.toString();
         try {
-            bwriter.write(topic.toString());
+            bwriter.write(topicAsString);
             bwriter.close();
         } catch (IOException e) {
-            System.out.println("IO error occurred");
+            System.out.println("IO error occurred when writing to file");
         }
     }
 
