@@ -21,14 +21,16 @@ public class Filemodifier {
 
     }
 
-    public void writetoFile(Topic topic){ //TÄÄLLÄ VIRHE!!! Ei pysty kirjoittamaan tiedostoon. MIKSI?
+    public void writetoFile(Topic topic){
         String topicAsString = topic.toString();
         try {
-            bwriter.write(topicAsString);
-            bwriter.close();
+            fwriter.write(topicAsString);
+
         } catch (IOException e) {
-            System.out.println("IO error occurred when writing to file");
+            System.out.println("IO error occurred when writing to file" + e.getMessage());
         }
+
+
     }
 
     public void readFile() {
@@ -41,6 +43,16 @@ public class Filemodifier {
       } catch (IOException e) {
           System.out.println("IO error occurred");
       }
+    }
+
+    public void readFileToList(File filename){ // palauttaa objektin
+        try{
+             FileInputStream fileinput = new FileInputStream(filename);
+             ObjectInputStream objectIn = new ObjectInputStream(fileinput);
+             Object topicAsObject = objectIn.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("IO Exception occurred: " +e.getMessage());
+        }
     }
 
 

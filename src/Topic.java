@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Topic {
+public class Topic implements Serializable {
     private static int id;
     private final int idcount;
     private String title;
@@ -28,10 +29,10 @@ public class Topic {
 
     @Override
     public String toString() {
-        return "Topic " + this.idcount + "\n" +
-                this.title + " , " + this.description + " , " + this.additionalSource + "\n"
-                + " Created on: " + this.creationDate + "\n" +
-                " Complete? " + this.complete + " , " + "completion date: " + this.completionDate + "\n";
+        return  this.title + " , " + this.description + " , " + this.additionalSource + "\n"
+                + "Created on: " + this.creationDate + "\n" +
+                "Complete? " + this.complete + " , " + "Completion date: " + this.completionDate + "\n" +
+                "TopicID: " + this.idcount + "\n";
 
     }
 

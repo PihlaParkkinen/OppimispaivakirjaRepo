@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ui {
@@ -44,7 +45,8 @@ public class ui {
                 System.out.print("Topic to complete: ");
                 String topicName = inputReader.nextLine();
                 // Jatka tähän: miten haetaan aihe ja tehdään complete() metodi sille.
-                //searchTopic(topicName);
+                //readFiletoList()
+                // searchTopic(topicName);
             }
 
             if (input.equals("3")) {
@@ -66,7 +68,12 @@ public class ui {
         for (int i = 0; i < topiclist.size(); i++) {
             Topic addable = topiclist.get(i);
             filemodifier.writetoFile(addable);
-            System.out.println(addable);
+
+        }
+        try {
+            filemodifier.bwriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
