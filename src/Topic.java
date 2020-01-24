@@ -26,6 +26,9 @@ public class Topic implements Serializable {
         this.completionDate = LocalDate.now();
     }
 
+    public String getTitle() {
+        return title;
+    }
 
     @Override
     public String toString() {

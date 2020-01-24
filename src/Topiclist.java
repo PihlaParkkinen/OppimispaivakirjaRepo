@@ -17,6 +17,10 @@ public class Topiclist {
         this.topiclist.add(topic);
     }
 
+    public  void addToListWithIndex(int indeksi, Topic topic) {
+        this.topiclist.add(indeksi, topic);
+    }
+
     public int size() {
         return this.topiclist.size();
     }
