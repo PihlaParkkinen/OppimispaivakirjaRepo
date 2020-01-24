@@ -1,15 +1,10 @@
 import java.io.*;
-import java.lang.reflect.Array;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ui {
     Scanner inputReader = new Scanner(System.in);
-    //Filemodifier filemodifier =  new Filemodifier(opfile);*/
-    public final File opfile = new File("oppimispaivakirja.txt");
-
 
     public void start() {
         List<Topic> topiclist = new ArrayList<>();
@@ -21,26 +16,12 @@ public class ui {
             System.out.println("Welcome! 0 - end application, 1 - add new topic, 2 - add topic completion, 3 - print all topics&info, 4 - remove topic from list");
             String input = inputReader.nextLine();
             if (input.equals("0")) {
-                //fileout.close();
                 System.out.println("Goodbye!");
                 break;
             } else if (input.equals("1")) {
                 list.addAll(ifInputIs1());
             } else if (input.equals("2")) {
-                while(true) {
-                    System.out.print("Type topic ID to add completion. Type 'stop' if no topics to complete.");
-                    String in = inputReader.nextLine();
-                    if (in.equals("stop")) {
-                        break;
-                    }
-                    int indeksi = Integer.valueOf(in);
-                    Topic topicToComplete = list.get(indeksi);
-                    topicToComplete.complete();
-                    list.remove(indeksi);
-                    list.add(indeksi, topicToComplete);
-                    System.out.println("Topic " + topicToComplete.getTitle() + " completed!");
-                }
-
+                ifInputIs2(list);
             } else if (input.equals("3")) {
                 for (Topic topicOnList : list) {
                     System.out.println(topicOnList);
@@ -62,7 +43,23 @@ public class ui {
 
     }
 
-    private void readingObjectFromFile() throws IOException {
+    private void ifInputIs2(List<Topic> list) {
+        while(true) {
+            System.out.print("Type topic ID to add completion. Type 'stop' if no topics to complete.");
+            String in = inputReader.nextLine();
+            if (in.equals("stop")) {
+                break;
+            }
+            int indeksi = Integer.valueOf(in);
+            Topic topicToComplete = list.get(indeksi);
+            topicToComplete.complete();
+            list.remove(indeksi);
+            list.add(indeksi, topicToComplete);
+            System.out.println("Topic " + topicToComplete.getTitle() + " completed!");
+        }
+    }
+
+   /* private void readingObjectFromFile() throws IOException {
         List<Topic> topics = new ArrayList<>();
         try {
             FileInputStream fileinput = new FileInputStream(opfile);
@@ -79,10 +76,7 @@ public class ui {
 
             } catch (ClassNotFoundException e) {
                 System.out.println("Class not found" + e.getMessage());
-            }
-
-    }
-
+            }*/
 
     private List<Topic> ifInputIs1(){
         List<Topic> list = new ArrayList<>();
@@ -97,8 +91,7 @@ public class ui {
             Topic t = createTopic(title, description, source);
             list.add(t);
 
-            //objectOut.writeObject(t);
-            //System.out.println("Topic was successfully saved to file!");
+
         }
         return list;
 
@@ -110,20 +103,6 @@ public class ui {
     }
 }
 
-    /*public Topic searchTopic(String topicName) {
-        return topicName;
-    }*/
-    /*public void addListToFile(Topiclist topiclist) {
-        for (int i = 0; i < topiclist.size(); i++) {
-            Topic addable = topiclist.get(i);
-            filemodifier.writetoFile(addable);
-
-        }
-        try {
-            filemodifier.bwriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
 
 
 
