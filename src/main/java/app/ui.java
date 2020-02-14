@@ -1,4 +1,5 @@
-import java.io.*;
+package app;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,15 +28,7 @@ public class ui {
                     System.out.println(topicOnList);
                 }
             } else if (input.equals("4")){
-                System.out.print("Type topic ID to delete topic from list. Type stop if no topics to delete");
-                String inp = inputReader.nextLine();
-                if (inp.equals("stop")) {
-                    break;
-                }
-                int indeksi = Integer.valueOf(inp);
-                Topic topicToRemove = list.get(indeksi);
-                list.remove(indeksi);
-                System.out.println("Topic " + topicToRemove.getTitle() + " deleted!");
+               ifInputIs4(list);
             } else {
                 System.out.println("You typed invalid number, try again!");
             }
@@ -43,9 +36,24 @@ public class ui {
 
     }
 
+
+    private void ifInputIs4(List<Topic> list) {
+        while (true) {
+            System.out.println("Type topic ID to delete topic from list. Type stop if no topics to delete.");
+            String inp = inputReader.nextLine();
+            if (inp.equals("stop")) {
+                break;
+            }
+            int indeksi = Integer.valueOf(inp);
+            Topic topicToRemove = list.get(indeksi);
+            list.remove(indeksi);
+            System.out.println("Topic " + topicToRemove.getTitle() + " deleted!");
+        }
+    }
+
     private void ifInputIs2(List<Topic> list) {
         while(true) {
-            System.out.print("Type topic ID to add completion. Type 'stop' if no topics to complete.");
+            System.out.println("Type topic ID to add completion. Type 'stop' if no topics to complete.");
             String in = inputReader.nextLine();
             if (in.equals("stop")) {
                 break;
@@ -59,24 +67,7 @@ public class ui {
         }
     }
 
-   /* private void readingObjectFromFile() throws IOException {
-        List<Topic> topics = new ArrayList<>();
-        try {
-            FileInputStream fileinput = new FileInputStream(opfile);
-            ObjectInputStream objectIn = new ObjectInputStream(fileinput);
-            BufferedReader br = new BufferedReader(new FileReader(opfile));
-            while(br.readLine() != null) {
-                Object objFromFile = objectIn.readObject();
 
-                Topic tfromFile = (Topic) objFromFile;
-                System.out.println(tfromFile);
-            }
-            objectIn.close();
-            br.close();
-
-            } catch (ClassNotFoundException e) {
-                System.out.println("Class not found" + e.getMessage());
-            }*/
 
     private List<Topic> ifInputIs1(){
         List<Topic> list = new ArrayList<>();

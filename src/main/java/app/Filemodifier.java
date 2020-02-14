@@ -1,14 +1,16 @@
+package app;
+
 import java.io.*;
-import java.util.Scanner;
 
 public class Filemodifier {
     public FileWriter fwriter;
     public PrintWriter pwriter;
-    public  BufferedWriter bwriter;
+    public BufferedWriter bwriter;
     public FileReader freader;
     public BufferedReader breader;
 
     public Filemodifier(File filename){
+
         try {
             this.fwriter = new FileWriter(filename, true);
             this.pwriter = new PrintWriter(fwriter);
